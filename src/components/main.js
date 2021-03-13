@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import DivCard from './div-card';
 
 class Main extends Component {
@@ -19,22 +19,24 @@ class Main extends Component {
         }
     }
 
-    updateCardData = (id) => {
+    updateCardData(id) {
         const elementsIndex = this.state.list.findIndex(element => element.id === id);
         const newArray = [...this.state.list];
         newArray[elementsIndex] = { ...newArray[elementsIndex], status: !newArray[elementsIndex].status };
         this.setState({ list: newArray });
     }
 
-    render = () => (
-        <main className="container">
-            <div className="row">
-                {this.state.list.map(card => {
-                    return <DivCard key={card.id} data={card} updateCardData={this.updateCardData}/>
-                })}
-            </div>
-        </main>
-    )
+    render() {
+        return (
+            <main className="container">
+                <div className="row">
+                    {this.state.list.map(card => {
+                        return <DivCard key={card.id} data={card} updateCardData={this.updateCardData} />
+                    })}
+                </div>
+            </main>
+        );
+    }
 }
 
 export default Main;
