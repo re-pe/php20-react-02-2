@@ -19,7 +19,7 @@ class Main extends Component {
         }
     }
 
-    updateCardData(id) {
+    updateCardData = (id) => {
         const elementsIndex = this.state.list.findIndex(element => element.id === id);
         const newArray = [...this.state.list];
         newArray[elementsIndex] = { ...newArray[elementsIndex], status: !newArray[elementsIndex].status };
